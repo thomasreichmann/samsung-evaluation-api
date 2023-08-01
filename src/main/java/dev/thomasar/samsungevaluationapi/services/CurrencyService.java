@@ -7,6 +7,7 @@ import dev.thomasar.samsungevaluationapi.dtos.CurrencyDTO;
 import dev.thomasar.samsungevaluationapi.dtos.QuotationDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -22,6 +23,10 @@ public class CurrencyService {
     }
 
     public List<QuotationDTO> getQuotations() {
-        return sdsApi.getQuotations().stream().map(QuotationResponse::toDTO).toList();
+        return sdsApi.getQuotations()
+                .stream()
+                .map(QuotationResponse::toDTO)
+                .sorted(Comparator.comparing(QuotationDTO::getDataHoraCotacao).reversed())
+                .toList();
     }
 }
