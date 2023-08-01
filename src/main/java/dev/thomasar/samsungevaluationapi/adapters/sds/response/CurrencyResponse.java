@@ -1,15 +1,17 @@
 package dev.thomasar.samsungevaluationapi.adapters.sds.response;
 
+import dev.thomasar.samsungevaluationapi.dtos.CurrencyDTO;
+
 public class CurrencyResponse {
-    private Long currencyId;
+    private String currencyId;
     private String currencyCode;
     private String currencyDesc;
 
-    public Long getCurrencyId() {
+    public String getCurrencyId() {
         return currencyId;
     }
 
-    public void setCurrencyId(Long currencyId) {
+    public void setCurrencyId(String currencyId) {
         this.currencyId = currencyId;
     }
 
@@ -27,5 +29,9 @@ public class CurrencyResponse {
 
     public void setCurrencyDesc(String currencyDesc) {
         this.currencyDesc = currencyDesc;
+    }
+
+    public CurrencyDTO toDTO() {
+        return new CurrencyDTO(currencyId, currencyCode, currencyDesc);
     }
 }
