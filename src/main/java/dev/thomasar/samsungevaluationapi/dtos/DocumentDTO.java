@@ -1,16 +1,23 @@
-package dev.thomasar.samsungevaluationapi.adapters.sds.response;
-
-import dev.thomasar.samsungevaluationapi.dtos.DocumentDTO;
+package dev.thomasar.samsungevaluationapi.dtos;
 
 import java.time.LocalDate;
 
-public class DocumentResponse {
+public class DocumentDTO {
     private Long documentId;
     private String documentNumber;
     private String notaFiscal;
     private LocalDate documentDate;
     private Double documentValue;
     private String currencyCode;
+
+    public DocumentDTO(Long documentId, String documentNumber, String notaFiscal, LocalDate documentDate, Double documentValue, String currencyCode) {
+        this.documentId = documentId;
+        this.documentNumber = documentNumber;
+        this.notaFiscal = notaFiscal;
+        this.documentDate = documentDate;
+        this.documentValue = documentValue;
+        this.currencyCode = currencyCode;
+    }
 
     public Long getDocumentId() {
         return documentId;
@@ -58,9 +65,5 @@ public class DocumentResponse {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
-    }
-
-    public DocumentDTO toDTO() {
-        return new DocumentDTO(documentId, documentNumber, notaFiscal, documentDate, documentValue, currencyCode);
     }
 }
