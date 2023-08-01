@@ -1,22 +1,26 @@
 package dev.thomasar.samsungevaluationapi.dtos;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 public class DocumentDTO {
+    public List<ConvertedCurrency> convertedCurrencies;
     private Long documentId;
     private String documentNumber;
     private String notaFiscal;
     private LocalDate documentDate;
-    private Double documentValue;
+    private BigDecimal documentValue;
     private String currencyCode;
 
-    public DocumentDTO(Long documentId, String documentNumber, String notaFiscal, LocalDate documentDate, Double documentValue, String currencyCode) {
+    public DocumentDTO(Long documentId, String documentNumber, String notaFiscal, LocalDate documentDate, BigDecimal documentValue, String currencyCode, List<ConvertedCurrency> currencies) {
         this.documentId = documentId;
         this.documentNumber = documentNumber;
         this.notaFiscal = notaFiscal;
         this.documentDate = documentDate;
         this.documentValue = documentValue;
         this.currencyCode = currencyCode;
+        this.convertedCurrencies = currencies;
     }
 
     public Long getDocumentId() {
@@ -51,11 +55,11 @@ public class DocumentDTO {
         this.documentDate = documentDate;
     }
 
-    public Double getDocumentValue() {
+    public BigDecimal getDocumentValue() {
         return documentValue;
     }
 
-    public void setDocumentValue(Double documentValue) {
+    public void setDocumentValue(BigDecimal documentValue) {
         this.documentValue = documentValue;
     }
 
@@ -65,5 +69,13 @@ public class DocumentDTO {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
+    }
+
+    public List<ConvertedCurrency> getConvertedCurrencies() {
+        return convertedCurrencies;
+    }
+
+    public void setConvertedCurrencies(List<ConvertedCurrency> convertedCurrencies) {
+        this.convertedCurrencies = convertedCurrencies;
     }
 }

@@ -1,14 +1,15 @@
 package dev.thomasar.samsungevaluationapi.dtos;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class QuotationDTO {
     private String fromCurrencyCode;
     private String toCurrencyCode;
-    private String cotacao;
-    private LocalDateTime dataHoraCotacao;
+    private BigDecimal cotacao;
+    private LocalDate dataHoraCotacao;
 
-    public QuotationDTO(String fromCurrencyCode, String toCurrencyCode, String cotacao, LocalDateTime dataHoraCotacao) {
+    public QuotationDTO(String fromCurrencyCode, String toCurrencyCode, BigDecimal cotacao, LocalDate dataHoraCotacao) {
         this.fromCurrencyCode = fromCurrencyCode;
         this.toCurrencyCode = toCurrencyCode;
         this.cotacao = cotacao;
@@ -31,19 +32,19 @@ public class QuotationDTO {
         this.toCurrencyCode = toCurrencyCode;
     }
 
-    public String getCotacao() {
+    public BigDecimal getCotacao() {
         return cotacao;
     }
 
-    public void setCotacao(String cotacao) {
+    public void setCotacao(BigDecimal cotacao) {
         this.cotacao = cotacao;
     }
 
-    public LocalDateTime getDataHoraCotacao() {
+    public LocalDate getDataHoraCotacao() {
         return dataHoraCotacao;
     }
 
-    public void setDataHoraCotacao(LocalDateTime dataHoraCotacao) {
+    public void setDataHoraCotacao(LocalDate dataHoraCotacao) {
         this.dataHoraCotacao = dataHoraCotacao;
     }
 }

@@ -1,7 +1,6 @@
 package dev.thomasar.samsungevaluationapi.adapters.sds.response;
 
-import dev.thomasar.samsungevaluationapi.dtos.DocumentDTO;
-
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class DocumentResponse {
@@ -9,7 +8,7 @@ public class DocumentResponse {
     private String documentNumber;
     private String notaFiscal;
     private LocalDate documentDate;
-    private Double documentValue;
+    private BigDecimal documentValue;
     private String currencyCode;
 
     public Long getDocumentId() {
@@ -44,11 +43,11 @@ public class DocumentResponse {
         this.documentDate = documentDate;
     }
 
-    public Double getDocumentValue() {
+    public BigDecimal getDocumentValue() {
         return documentValue;
     }
 
-    public void setDocumentValue(Double documentValue) {
+    public void setDocumentValue(BigDecimal documentValue) {
         this.documentValue = documentValue;
     }
 
@@ -58,9 +57,5 @@ public class DocumentResponse {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
-    }
-
-    public DocumentDTO toDTO() {
-        return new DocumentDTO(documentId, documentNumber, notaFiscal, documentDate, documentValue, currencyCode);
     }
 }

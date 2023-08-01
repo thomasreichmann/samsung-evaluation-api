@@ -2,13 +2,14 @@ package dev.thomasar.samsungevaluationapi.adapters.sds.response;
 
 import dev.thomasar.samsungevaluationapi.dtos.QuotationDTO;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class QuotationResponse {
     private String fromCurrencyCode;
     private String toCurrencyCode;
-    private String cotacao;
-    private LocalDateTime dataHoraCotacao;
+    private BigDecimal cotacao;
+    private LocalDate dataHoraCotacao;
 
     public String getFromCurrencyCode() {
         return fromCurrencyCode;
@@ -26,19 +27,19 @@ public class QuotationResponse {
         this.toCurrencyCode = toCurrencyCode;
     }
 
-    public String getCotacao() {
+    public BigDecimal getCotacao() {
         return cotacao;
     }
 
-    public void setCotacao(String cotacao) {
+    public void setCotacao(BigDecimal cotacao) {
         this.cotacao = cotacao;
     }
 
-    public LocalDateTime getDataHoraCotacao() {
+    public LocalDate getDataHoraCotacao() {
         return dataHoraCotacao;
     }
 
-    public void setDataHoraCotacao(LocalDateTime dataHoraCotacao) {
+    public void setDataHoraCotacao(LocalDate dataHoraCotacao) {
         this.dataHoraCotacao = dataHoraCotacao;
     }
 
