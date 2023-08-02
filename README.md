@@ -32,7 +32,8 @@ A aplicação está atualmente hospedada e pode ser acessada online:
 
 Recomendamos que acessem os links fornecidos para ver a aplicação em ação em um ambiente de produção.
 
-## Repositório
+## Repositório Frontend
 
-O código do projeto está disponível no seguinte
-repositório: [Link para o repositório](https://github.com/thomasreichmann/samsung-evaluation-ui).
+O frontend desta aplicação foi desenvolvido usando Angular e está hospedado em um repositório separado. Você pode
+acessar e revisar o código do
+frontend [Link para o repositório](https://github.com/thomasreichmann/samsung-evaluation-api).
