@@ -7,7 +7,9 @@ import dev.thomasar.samsungevaluationapi.dtos.DocumentDTO;
 import dev.thomasar.samsungevaluationapi.dtos.QuotationDTO;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DocumentService {
@@ -22,11 +24,16 @@ public class DocumentService {
         this.documentConverter = documentConverter;
     }
 
-    public List<DocumentDTO> getDocuments() {
+    public List<DocumentDTO> getDocuments(String documentNumber, String currencyCode, LocalDate startDate, LocalDate endDate) {
         List<DocumentResponse> documents = sdsApi.getDocuments();
         List<QuotationDTO> quotations = currencyService.getQuotations();
         List<CurrencyDTO> targetCurrencies = currencyService.getCurrencies();
-        
-        return documentConverter.toDTO(documents, targetCurrencies, quotations);
+
+        return documentConverter.toDTO(documents, targetCurrencies, quotations).stream()
+                .filter(doc -> documentNumber == null || doc.getDocumentNumber().contains(documentNumber))
+                .filter(doc -> currencyCode == null || doc.getCurrencyCode().equalsIgnoreCase(currencyCode))
+                .filter(doc -> startDate == null || !doc.getDocumentDate().isBefore(startDate))
+                .filter(doc -> endDate == null || !doc.getDocumentDate().isAfter(endDate))
+                .collect(Collectors.toList());
     }
 }
