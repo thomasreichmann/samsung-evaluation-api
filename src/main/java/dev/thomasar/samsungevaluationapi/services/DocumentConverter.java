@@ -42,8 +42,14 @@ public class DocumentConverter {
     }
 
     private ConvertedCurrency convertToTargetCurrency(DocumentResponse documentResponse, CurrencyDTO targetCurrency, List<QuotationDTO> quotations) {
+        // If we already have the target currency, we add it to the list of converted currencies unchanged
         if (documentResponse.getCurrencyCode().equalsIgnoreCase(targetCurrency.getCurrencyCode())) {
-            return null;
+            return new ConvertedCurrency(
+                    documentResponse.getCurrencyCode(),
+                    targetCurrency.getCurrencyCode(),
+                    documentResponse.getDocumentValue(),
+                    documentResponse.getDocumentValue()
+            );
         }
 
         QuotationDTO quotation = findQuotation(documentResponse.getCurrencyCode(), targetCurrency.getCurrencyCode(), quotations);
