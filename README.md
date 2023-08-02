@@ -1,8 +1,38 @@
-1. Criar um projeto SpringBoot "samsung-evaluation-api" para consumir uma API REST;
-   1.1. Esse projeto deve consumir as APIs REST abaixo:
-   1.2. Os Existem 3 serviços abaixo devem ser utilizados para a construção da aplicação:
-    - [API REST para recuperar a descrição de cada moeda.](https://sdshealthcheck.cellologistics.com.br/sds-devs-evaluation/evaluation/currency)
-    - [API REST para recuperar a cotação da moedas (BRL, PEN e USD) por data.](https://sdshealthcheck.cellologistics.com.br/sds-devs-evaluation/evaluation/quotation)
-    - [API REST para recuperar os documentos a sua moeda padrão.](https://sdshealthcheck.cellologistics.com.br/sds-devs-evaluation/evaluation/docs)
+# Projeto de Avaliação Samsung SDS - Backend API
 
-2. Com o retorno das APIs, construir um objeto (DTO ou VO) para exibição no front-end.
+Este é o repositório do backend da aplicação desenvolvida como parte do processo seletivo para a posição na Samsung SDS.
+
+## Descrição
+
+Este projeto backend foi desenvolvido utilizando o Java Spring Boot. Ele fornece uma API RESTful que serve documentos
+relacionados a finanças ou contabilidade em um contexto multi-moeda.
+
+## Endpoints
+
+1. **Moedas**:
+    - **GET /currency**: Recupera a descrição de cada moeda.
+
+2. **Documentos**:
+    - **GET /documents**: Recupera uma lista de documentos baseada em parâmetros
+      como `documentNumber`, `currencyCode`, `startDate` e `endDate`.
+
+3. **Cotações**:
+    - **GET /currencies**: Fornece uma lista de moedas disponíveis.
+    - **GET /currencies/quotations**: Fornece uma lista de cotações disponíveis ordenadas por data.
+
+## Deployment da Aplicação
+
+A aplicação está atualmente hospedada e pode ser acessada online:
+
+- **Frontend**: A interface de usuário foi hospedada através do Firebase e está disponível no seguinte
+  link: https://samsung.thomasar.dev.
+
+- **Backend**: A API do backend está sendo executada em uma instância AWS EC2 e pode ser acessada através do seguinte
+  link: https://api.samsung.thomasar.dev.
+
+Recomendamos que acessem os links fornecidos para ver a aplicação em ação em um ambiente de produção.
+
+## Repositório
+
+O código do projeto está disponível no seguinte
+repositório: [Link para o repositório](https://github.com/thomasreichmann/samsung-evaluation-ui).
